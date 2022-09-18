@@ -1,5 +1,5 @@
 # recipe-app-api
-This is the dockerized project for Linkedin Django Portfolio Course.
+This is the dockerized project for LinkedIn Django Portfolio Course.
 
 Commands:
 

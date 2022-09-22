@@ -1,1 +1,56 @@
-Hello from Moji!
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mojtaba Michael's Website</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+    <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Mojtaba Michael (Call me MJ !)</h1>
+          <p class="lead text-muted">I'm a programming lover!</p>
+          <p>
+            <a href="mailto:mojimich2015@gmail.com" class="btn btn-primary my-2">Email Me</a>
+            <a href="#" class="btn btn-secondary my-2">Call Me</a>
+          </p>
+          <img src="{% static 'mojtaba-michael.jpg' %}" height="300px" class="rounded-circle" alt="Mojtaba Michael"></img>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            {% for job in jobs.all %}
+                <div class="col-md-4">
+                    <a href="{% url 'detail' job.id %}">
+                      <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" src="{{ job.image.url }}" alt="{{job.summary}}">
+                        <div class="card-body">
+                          <p class="card-text">{{job.summary}}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                          </div>
+                        </div>
+                      </div>
+                  </a>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+    {% static 'js/bootstrap.min.js' %}
+    <script src="{% static 'jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
